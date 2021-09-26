@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>css animation</title>
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                font-size: 300px;
+                background-color: #189ab4;
+            }
+
+            .container {
+                width: 1em;
+                height: 1em;
+                position: relative;
+                transform-style: preserve-3d;
+                transition: 1.5s transform;
+                animation: full-animation 15s infinite;
+            }
+
+            .face {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: visible;
+                -webkit-backface-visibility: visible;
+            }
+
+            .front {
+                background: rgba(136, 146, 40, 0.3);
+                background-image: url("./1.jpeg");
+                transform: translateZ(0.5em);
+                background-size: cover;
+            }
+
+            .back {
+                transform: rotateY(180deg) translateZ(0.5em);
+                background: rgba(76, 221, 214, 0.3);
+                background-image: url("./2.jpeg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .right {
+                transform: rotateY(90deg) translateZ(0.5em);
+                background: rgba(221, 29, 119, 0.3);
+                background-image: url("./3.jpeg");
+                background-size: cover;
+            }
+
+            .left {
+                transform: rotateY(-90deg) translateZ(0.5em);
+                background: rgba(221, 51, 29, 0.3);
+                background-image: url("./4.jpeg");
+                background-size: cover;
+            }
+
+            .top {
+                transform: rotateX(90deg) translateZ(0.5em);
+                background: rgba(87, 29, 221, 0.3);
+                background-image: url("./5.jpeg");
+                background-size: cover;
+            }
+
+            .bottom {
+                transform: rotateX(-90deg) translateZ(0.5em);
+                background-image: url("./6.jpeg");
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            .shadow-container {
+                position: relative;
+                transform-style: preserve-3d;
+                perspective: 3.33em;
+            }
+
+            .shadow {
+                position: absolute;
+                width: 1em;
+                height: 1em;
+                transform: rotateX(90deg);
+                left: -0.5em;
+                top: -0.23em;
+                background: rgba(0, 0, 0, 0.75);
+                -webkit-filter: blur(15px);
+                filter: blur(15px);
+                animation: shadow-animation 15s infinite;
+            }
+
+            @keyframes full-animation {
+                0%,
+                100% {
+                    transform: rotateY(0deg);
+                }
+                5% {
+                    transform: rotateY(20deg);
+                }
+                15% {
+                    transform: rotateY(-450deg);
+                }
+                20% {
+                    transform: rotateY(-430deg);
+                }
+                30% {
+                    transform: rotateY(-900deg);
+                }
+                35% {
+                    transform: rotateY(-880deg);
+                }
+                45% {
+                    transform: rotateY(-1350deg);
+                }
+                47.5% {
+                    transform: rotateY(0);
+                }
+                50% {
+                    transform: rotateX(-20deg);
+                }
+                60% {
+                    transform: rotateX(90deg);
+                }
+                65% {
+                    transform: rotateX(0deg);
+                }
+                70% {
+                    transform: rotateX(20deg);
+                }
+                80% {
+                    transform: rotateX(-90deg);
+                }
+            }
+
+            @keyframes shadow-animation {
+                0%,
+                100% {
+                    transform: rotateX(90deg) rotateZ(0deg) scaleY(1);
+                }
+                5% {
+                    transform: rotateX(90deg) rotateZ(-20deg);
+                }
+                15% {
+                    transform: rotateX(90deg) rotateZ(450deg);
+                }
+                20% {
+                    transform: rotateX(90deg) rotateZ(430deg);
+                }
+                30% {
+                    transform: rotateX(90deg) rotateZ(900deg);
+                }
+                35% {
+                    transform: rotateX(90deg) rotateZ(880deg);
+                }
+                45% {
+                    transform: rotateX(90deg) rotateZ(1350deg);
+                }
+                47.5% {
+                    transform: rotateX(90deg) rotateZ(0);
+                }
+                50% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+                52.2% {
+                    transform: rotateX(90deg) scaleY(1);
+                }
+                54.4% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+                60% {
+                    transform: rotateX(90deg) scaleY(1);
+                }
+                62.5% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+                65% {
+                    transform: rotateX(90deg) scaleY(1);
+                }
+                70% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+                72.2% {
+                    transform: rotateX(90deg) scaleY(1);
+                }
+                74.4% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+                80% {
+                    transform: rotateX(90deg) scaleY(1);
+                }
+                90% {
+                    transform: rotateX(90deg) scaleY(1.5);
+                }
+            }
+
+            @media screen and (max-width: 1366px) {
+                body {
+                    font-size: 270px;
+                }
+            }
+
+            @media screen and (max-width: 800px) {
+                body {
+                    font-size: 200px;
+                }
+            }
+
+            @media screen and (max-width: 330px) {
+                body {
+                    font-size: 170px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face right"></div>
+            <div class="face left"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+        </div>
+        <div class="shadow-container">
+            <div class="shadow"></div>
+        </div>
+    </body>
+</html>
